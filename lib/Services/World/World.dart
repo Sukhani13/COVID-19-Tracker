@@ -1,4 +1,4 @@
-import 'Networking.dart';
+import 'package:COVID19/Services/Networking.dart';
 
 const url = 'https://api.covid19api.com/summary';
 

@@ -57,6 +57,7 @@ class _CountryPageState extends State<CountryPage> {
       ),
       body: ListView(
         shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
         padding: EdgeInsets.all(15),
         children: <Widget>[
           Column(

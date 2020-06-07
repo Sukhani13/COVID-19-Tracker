@@ -1,16 +1,16 @@
-import 'package:COVID19/Services/World.dart';
+import 'package:COVID19/Services/India/India.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class LoadingCountryPage extends StatefulWidget {
-  final String countryName;
-  LoadingCountryPage(this.countryName);
+class LoadingStatePage extends StatefulWidget {
+  final stateName;
+  LoadingStatePage(this.stateName);
   @override
-  _LoadingCountryPageState createState() => _LoadingCountryPageState();
+  _LoadingStatePageState createState() => _LoadingStatePageState();
 }
 
-class _LoadingCountryPageState extends State<LoadingCountryPage> {
-  var country;
+class _LoadingStatePageState extends State<LoadingStatePage> {
+  var state;
   @override
   void initState() {
     super.initState();
@@ -18,12 +18,12 @@ class _LoadingCountryPageState extends State<LoadingCountryPage> {
   }
 
   void fetchData() async {
-    country = await WorldModel().getCountryData(widget.countryName);
-    if (country == null) {
+    state = await IndiaModel().getState(widget.stateName);
+    if (state == null) {
       Navigator.of(context).pushNamed('/error');
       return;
     }
-    Navigator.of(context).popAndPushNamed('/countrypage', arguments: country);
+    Navigator.of(context).popAndPushNamed('/statepage', arguments: state);
   }
 
   Widget build(BuildContext context) {
